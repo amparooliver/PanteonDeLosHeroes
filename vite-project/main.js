@@ -4,10 +4,21 @@ import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls.js';
 // Create a scene
 const scene = new THREE.Scene();
 
+// Piso
+const baldosaGeometry = new THREE.BoxGeometry(6, 0.05, 6)  // Width, Height, Depth
+const baldosaMaterial = new THREE.MeshStandardMaterial({
+  color: "#b99d81",
+  roughness: 0.5, // Adjust roughness
+  metalness: 0.1, // Adjust metalness
+});
+const baldosa = new THREE.Mesh(baldosaGeometry, baldosaMaterial);
+baldosa.position.set(0, -1, 1);
+scene.add(baldosa);
+
 // Creo la 1ra caja
 const caja1Geometry = new THREE.BoxGeometry(3.2, 2, 3); // Width, Height, Depth
 const cajaMaterial = new THREE.MeshStandardMaterial({
-  color: "#dad2c5",
+  color: "#f2f2f2", // f4f4f4 dad2c5
   roughness: 0.5, // Adjust roughness
   metalness: 0, // Adjust metalness
 });
@@ -77,7 +88,27 @@ const baseColumna2 = new THREE.Mesh(baseColumnaGeometry, cajaMaterial);
 baseColumna2.position.set(-0.8, -0.9, 3.7);
 scene.add(baseColumna2);
 
-// Detalles Columna Izquierda
+// Columna Izquierda Unica
+
+const columnaUizq = new THREE.Mesh(columnaGeometry, cajaMaterial);
+columnaUizq.position.set(-1, 0, 2.8);
+scene.add(columnaUizq);
+
+const baseColumnaUizq = new THREE.Mesh(baseColumnaGeometry, cajaMaterial);
+baseColumnaUizq.position.set(-1, -0.9, 2.8);
+scene.add(baseColumnaUizq);
+
+
+// Columna Der Unica
+
+const columnaUder = new THREE.Mesh(columnaGeometry, cajaMaterial);
+columnaUder.position.set(1, 0, 2.8);
+scene.add(columnaUder);
+
+const baseColumnaUder = new THREE.Mesh(baseColumnaGeometry, cajaMaterial);
+baseColumnaUder.position.set(1, -0.9, 2.8);
+scene.add(baseColumnaUder);
+
 
 // Primera Columna 
 const torusGeometry = new THREE.TorusGeometry(0.067, 0.012, 16, 50); // R, tube R, 
@@ -179,11 +210,77 @@ torusSmall5.position.set(-0.3, -0.792, 3.7);
 torusSmall5.rotation.x = Math.PI / 2;
 scene.add(torusSmall5);
 
+// Detalles columnas Unicas
 
+const torusUizq = new THREE.Mesh(torusGeometry, cajaMaterial);
+torusUizq.position.set(-1, -0.81, 2.8);
+torusUizq.rotation.x = Math.PI / 2;
+scene.add(torusUizq);
+
+const torusSmallUizq = new THREE.Mesh(torusSmallGeometry, cajaMaterial);
+torusSmallUizq.position.set(-1, -0.792, 2.8);
+torusSmallUizq.rotation.x = Math.PI / 2;
+scene.add(torusSmallUizq);
+
+const torusUder = new THREE.Mesh(torusGeometry, cajaMaterial);
+torusUder.position.set(1, -0.81, 2.8);
+torusUder.rotation.x = Math.PI / 2;
+scene.add(torusUder);
+
+const torusSmallUder = new THREE.Mesh(torusSmallGeometry, cajaMaterial);
+torusSmallUder.position.set(1, -0.792, 2.8);
+torusSmallUder.rotation.x = Math.PI / 2;
+scene.add(torusSmallUder);
+
+//Techo
+const techoColGeometry6 = new THREE.BoxGeometry(2.2, 0.15, 1)
+const techoCol = new THREE.Mesh(techoColGeometry6, cajaMaterial)
+techoCol.position.set(0,0.9,3.25);
+scene.add(techoCol);
+
+// Cupula
+const points = [];
+for ( let i = 0; i < 10; i ++ ) {
+	points.push( new THREE.Vector2( Math.sin( i * 0.2 ) * 10 + 5, ( i - 5 ) * 2 ) );
+}
+const cupulaGeometry = new THREE.LatheGeometry( points );
+const cupula = new THREE.Mesh( cupulaGeometry, cajaMaterial );
+cupula.position.set(0, 3, 0);
+cupula.scale.set(0.053, 0.053, 0.053);
+cupula.rotation.z = Math.PI;  // 180 grados en radianes
+scene.add( cupula );
+
+// Cupula Medio
+const cupulaMedioGeometry = new THREE.CylinderGeometry(0.8, 0.8, 1.2, 16); // R top, R bot, H, R Seg
+const cupulaMedio = new THREE.Mesh(cupulaMedioGeometry, cajaMaterial);
+cupulaMedio.position.set(0, 1.9, 0);
+scene.add(cupulaMedio);
+
+// Cupula Base
+const cupulaBaseGeometry = new THREE.BoxGeometry(1.3,0.8,1.8) // Width, Height, Depth
+const cupulaBase = new THREE.Mesh(cupulaBaseGeometry, cajaMaterial)
+cupulaBase.position.set(0,1,0);
+scene.add(cupulaBase);
+const cupulaBaseGeometry2 = new THREE.BoxGeometry(1.8,0.8,1.3) // Width, Height, Depth
+const cupulaBase2 = new THREE.Mesh(cupulaBaseGeometry2, cajaMaterial)
+cupulaBase2.position.set(0,1,0);
+scene.add(cupulaBase2);
+const cupulaBaseGeometry3 = new THREE.BoxGeometry(1.3,0.05,1.8) // Width, Height, Depth
+const cupulaBase3 = new THREE.Mesh(cupulaBaseGeometry3, baldosaMaterial)
+cupulaBase3.position.set(0,1.45,0);
+scene.add(cupulaBase3);
+const cupulaBaseGeometry4 = new THREE.BoxGeometry(1.8,0.05,1.3) // Width, Height, Depth
+const cupulaBase4 = new THREE.Mesh(cupulaBaseGeometry4, baldosaMaterial)
+cupulaBase4.position.set(0,1.45,0);
+scene.add(cupulaBase4);
+
+// Curvas Cupula
+// 
+// Create a custom curved plane geometry
 
 // Light
 const light = new THREE.PointLight(0xffffff, 1, 10);
-light.position.set(0, -1, 5);
+light.position.set(0, 0.5, 5);
 scene.add(light);
 
 // Ambient Light
@@ -202,8 +299,9 @@ const canvas = document.querySelector(".webgl");
 const renderer = new THREE.WebGLRenderer({ canvas });
 renderer.setSize(1500, 800);
 
-// Set background color
+// Color fondo
 renderer.setClearColor("#dbe5ee"); // Use any valid CSS color value
+
 
 // OrbitControls
 const controls = new OrbitControls(camera, renderer.domElement);
