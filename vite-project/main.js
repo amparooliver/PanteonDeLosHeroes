@@ -32,60 +32,25 @@ const caja2 = new THREE.Mesh(caja2Geometry, cajaMaterial);
 caja2.position.set(0,0,2)
 scene.add(caja2)
 
-// Escalones Puerta Principal
-const escalonCortoGeometry1 = new THREE.BoxGeometry(1.7, 0.05, 1)  // Width, Height, Depth
-const escalonMaterial = new THREE.MeshStandardMaterial({
-  color: "#7c7d78",
-  roughness: 0.5, // Adjust roughness
-  metalness: 0.1, // Adjust metalness
-});
-const escalon1 = new THREE.Mesh(escalonCortoGeometry1, escalonMaterial);
-escalon1.position.set(0, -0.705, 2.75);
-scene.add(escalon1);
-
-const escalonCortoGeometry2 = new THREE.BoxGeometry(1.8, 0.05, 1)
-const escalon2 = new THREE.Mesh(escalonCortoGeometry2, escalonMaterial)
-escalon2.position.set(0,-0.755,2.85);
-scene.add(escalon2);
-
-const escalonCortoGeometry3 = new THREE.BoxGeometry(1.9, 0.05, 1)
-const escalon3 = new THREE.Mesh(escalonCortoGeometry3, escalonMaterial)
-escalon3.position.set(0,-0.805,2.95);
-scene.add(escalon3);
-
-const escalonCortoGeometry4 = new THREE.BoxGeometry(2, 0.05, 1)
-const escalon4 = new THREE.Mesh(escalonCortoGeometry4, escalonMaterial)
-escalon4.position.set(0,-0.855,3.05);
-scene.add(escalon4);
-
-const escalonCortoGeometry5 = new THREE.BoxGeometry(2.1, 0.05, 1)
-const escalon5 = new THREE.Mesh(escalonCortoGeometry5, escalonMaterial)
-escalon5.position.set(0,-0.905,3.15);
-scene.add(escalon5);
-
-const escalonCortoGeometry6 = new THREE.BoxGeometry(2.2, 0.05, 1)
-const escalon6 = new THREE.Mesh(escalonCortoGeometry6, escalonMaterial)
-escalon6.position.set(0,-0.955,3.25);
-scene.add(escalon6);
 
 // Columnas izquierda
 
 const columnaGeometry = new THREE.CylinderGeometry(0.06, 0.06, 1.95, 16); // R top, R bot, H, R Seg
 const columna1 = new THREE.Mesh(columnaGeometry, cajaMaterial);
-columna1.position.set(-1, 0, 3.7);
+columna1.position.set(-1, 0, 3.4);
 scene.add(columna1);
 
 const columna2 = new THREE.Mesh(columnaGeometry, cajaMaterial);
-columna2.position.set(-0.8, 0, 3.7);
+columna2.position.set(-0.8, 0, 3.4);
 scene.add(columna2);
 
-const baseColumnaGeometry = new THREE.BoxGeometry(0.22, 0.16, 0.16);  // Width, Height, Depth
+const baseColumnaGeometry = new THREE.BoxGeometry(0.22, 0.4, 0.16);  // Width, Height, Depth
 const baseColumna1 = new THREE.Mesh(baseColumnaGeometry, cajaMaterial);
-baseColumna1.position.set(-1, -0.9, 3.7);
+baseColumna1.position.set(-1, -0.85, 3.4); //0.9 a 0.85(0.05 dif)
 scene.add(baseColumna1);
 
 const baseColumna2 = new THREE.Mesh(baseColumnaGeometry, cajaMaterial);
-baseColumna2.position.set(-0.8, -0.9, 3.7);
+baseColumna2.position.set(-0.8, -0.85, 3.4);
 scene.add(baseColumna2);
 
 // Columna Izquierda Unica
@@ -95,9 +60,8 @@ columnaUizq.position.set(-1, 0, 2.8);
 scene.add(columnaUizq);
 
 const baseColumnaUizq = new THREE.Mesh(baseColumnaGeometry, cajaMaterial);
-baseColumnaUizq.position.set(-1, -0.9, 2.8);
+baseColumnaUizq.position.set(-1, -0.85, 2.8);
 scene.add(baseColumnaUizq);
-
 
 // Columna Der Unica
 
@@ -106,136 +70,226 @@ columnaUder.position.set(1, 0, 2.8);
 scene.add(columnaUder);
 
 const baseColumnaUder = new THREE.Mesh(baseColumnaGeometry, cajaMaterial);
-baseColumnaUder.position.set(1, -0.9, 2.8);
+baseColumnaUder.position.set(1, -0.85, 2.8);
 scene.add(baseColumnaUder);
-
 
 // Primera Columna 
 const torusGeometry = new THREE.TorusGeometry(0.067, 0.012, 16, 50); // R, tube R, 
 const torus = new THREE.Mesh(torusGeometry, cajaMaterial);
-torus.position.set(-1, -0.81, 3.7);
+torus.position.set(-1, -0.64, 3.4); // 0.69 a 0.64 dif1
 torus.rotation.x = Math.PI / 2;
 scene.add(torus);
 
 const torusSmallGeometry = new THREE.TorusGeometry(0.0652, 0.0062, 16, 50); // R, tube R, 
 const torusSmall = new THREE.Mesh(torusSmallGeometry, cajaMaterial);
-torusSmall.position.set(-1, -0.792, 3.7);
+torusSmall.position.set(-1, -0.62, 3.4); // 0.67 a 0.62 dif2
 torusSmall.rotation.x = Math.PI / 2;
 scene.add(torusSmall);
 
 //Segunda Columna
 const torus1 = new THREE.Mesh(torusGeometry, cajaMaterial);
-torus1.position.set(-0.8, -0.81, 3.7);
+torus1.position.set(-0.8, -0.64, 3.4);
 torus1.rotation.x = Math.PI / 2;
 scene.add(torus1);
 
 const torusSmall1 = new THREE.Mesh(torusSmallGeometry, cajaMaterial);
-torusSmall1.position.set(-0.8, -0.792, 3.7);
+torusSmall1.position.set(-0.8, -0.62, 3.4);
 torusSmall1.rotation.x = Math.PI / 2;
 scene.add(torusSmall1);
 
 // Columnas derecha
 
 const columna3 = new THREE.Mesh(columnaGeometry, cajaMaterial);
-columna3.position.set(1, 0, 3.7);
+columna3.position.set(1, 0, 3.4);
 scene.add(columna3);
 
 const columna4 = new THREE.Mesh(columnaGeometry, cajaMaterial);
-columna4.position.set(0.8, 0, 3.7);
+columna4.position.set(0.8, 0, 3.4);
 scene.add(columna4);
 
 const baseColumna3 = new THREE.Mesh(baseColumnaGeometry, cajaMaterial);
-baseColumna3.position.set(1, -0.9, 3.7);
+baseColumna3.position.set(1, -0.85, 3.4);
 scene.add(baseColumna3);
 
 const baseColumna4 = new THREE.Mesh(baseColumnaGeometry, cajaMaterial);
-baseColumna4.position.set(0.8, -0.9, 3.7);
+baseColumna4.position.set(0.8, -0.85, 3.4);
 scene.add(baseColumna4);
 
 // Detalles Columna Derecha
 
 const torus2 = new THREE.Mesh(torusGeometry, cajaMaterial);
-torus2.position.set(0.8, -0.81, 3.7);
+torus2.position.set(0.8, -0.64, 3.4);
 torus2.rotation.x = Math.PI / 2;
 scene.add(torus2);
 
 const torusSmall2 = new THREE.Mesh(torusSmallGeometry, cajaMaterial);
-torusSmall2.position.set(0.8, -0.792, 3.7);
+torusSmall2.position.set(0.8, -0.62, 3.4);
 torusSmall2.rotation.x = Math.PI / 2;
 scene.add(torusSmall2);
 
 const torus3 = new THREE.Mesh(torusGeometry, cajaMaterial);
-torus3.position.set(1, -0.81, 3.7);
+torus3.position.set(1, -0.64, 3.4);
 torus3.rotation.x = Math.PI / 2;
 scene.add(torus3);
 
 const torusSmall3 = new THREE.Mesh(torusSmallGeometry, cajaMaterial);
-torusSmall3.position.set(1, -0.792, 3.7);
+torusSmall3.position.set(1, -0.62, 3.4);
 torusSmall3.rotation.x = Math.PI / 2;
 scene.add(torusSmall3);
 
 // Columnas centrales
 
 const columna5 = new THREE.Mesh(columnaGeometry, cajaMaterial);
-columna5.position.set(0.3, 0, 3.7);
+columna5.position.set(0.3, 0, 3.4);
 scene.add(columna5);
 
 const columna6 = new THREE.Mesh(columnaGeometry, cajaMaterial);
-columna6.position.set(-0.3, 0, 3.7);
+columna6.position.set(-0.3, 0, 3.4);
 scene.add(columna6);
 
 const baseColumna5 = new THREE.Mesh(baseColumnaGeometry, cajaMaterial);
-baseColumna5.position.set(0.3, -0.9, 3.7);
+baseColumna5.position.set(0.3, -0.85, 3.4);
 scene.add(baseColumna5);
 
 const baseColumna6 = new THREE.Mesh(baseColumnaGeometry, cajaMaterial);
-baseColumna6.position.set(-0.3, -0.9, 3.7);
+baseColumna6.position.set(-0.3, -0.85, 3.4);
 scene.add(baseColumna6);
 
 // Detalles Columna Centrales
 const torus4 = new THREE.Mesh(torusGeometry, cajaMaterial);
-torus4.position.set(0.3, -0.81, 3.7);
+torus4.position.set(0.3, -0.64, 3.4);
 torus4.rotation.x = Math.PI / 2;
 scene.add(torus4);
 const torusSmall4 = new THREE.Mesh(torusSmallGeometry, cajaMaterial);
-torusSmall4.position.set(0.3, -0.792, 3.7);
+torusSmall4.position.set(0.3, -0.62, 3.4);
 torusSmall4.rotation.x = Math.PI / 2;
 scene.add(torusSmall4);
 const torus5 = new THREE.Mesh(torusGeometry, cajaMaterial);
-torus5.position.set(-0.3, -0.81, 3.7);
+torus5.position.set(-0.3, -0.64, 3.4);
 torus5.rotation.x = Math.PI / 2;
 scene.add(torus5);
 const torusSmall5 = new THREE.Mesh(torusSmallGeometry, cajaMaterial);
-torusSmall5.position.set(-0.3, -0.792, 3.7);
+torusSmall5.position.set(-0.3, -0.62, 3.4);
 torusSmall5.rotation.x = Math.PI / 2;
 scene.add(torusSmall5);
 
 // Detalles columnas Unicas
 
 const torusUizq = new THREE.Mesh(torusGeometry, cajaMaterial);
-torusUizq.position.set(-1, -0.81, 2.8);
+torusUizq.position.set(-1, -0.64, 2.8);
 torusUizq.rotation.x = Math.PI / 2;
 scene.add(torusUizq);
 
 const torusSmallUizq = new THREE.Mesh(torusSmallGeometry, cajaMaterial);
-torusSmallUizq.position.set(-1, -0.792, 2.8);
+torusSmallUizq.position.set(-1, -0.62, 2.8);
 torusSmallUizq.rotation.x = Math.PI / 2;
 scene.add(torusSmallUizq);
 
 const torusUder = new THREE.Mesh(torusGeometry, cajaMaterial);
-torusUder.position.set(1, -0.81, 2.8);
+torusUder.position.set(1, -0.64, 2.8);
 torusUder.rotation.x = Math.PI / 2;
 scene.add(torusUder);
 
 const torusSmallUder = new THREE.Mesh(torusSmallGeometry, cajaMaterial);
-torusSmallUder.position.set(1, -0.792, 2.8);
+torusSmallUder.position.set(1, -0.62, 2.8);
 torusSmallUder.rotation.x = Math.PI / 2;
 scene.add(torusSmallUder);
 
+// Escalones
+
+const escalonCortoGeometry1 = new THREE.BoxGeometry(1.75, 0.05, 1)  // Width, Height, Depth
+const escalonMaterial = new THREE.MeshStandardMaterial({
+  color: "#7c7d78",
+  roughness: 0.5, // Adjust roughness
+  metalness: 0.1, // Adjust metalness
+});
+const escalon1 = new THREE.Mesh(escalonCortoGeometry1, escalonMaterial);
+escalon1.position.set(0, -0.705, 2.85); //2.75
+scene.add(escalon1);
+
+const escalonCortoGeometry2 = new THREE.BoxGeometry(1.85, 0.05, 1)
+const escalon2 = new THREE.Mesh(escalonCortoGeometry2, escalonMaterial)
+escalon2.position.set(0,-0.755,2.95);
+scene.add(escalon2);
+
+const escalonCortoGeometry3 = new THREE.BoxGeometry(1.55, 0.05, 1)
+const escalon3 = new THREE.Mesh(escalonCortoGeometry3, escalonMaterial)
+escalon3.position.set(0,-0.805,3.05);
+scene.add(escalon3);
+
+const escalonCortoGeometry4 = new THREE.BoxGeometry(1.65, 0.05, 1)
+const escalon4 = new THREE.Mesh(escalonCortoGeometry4, escalonMaterial)
+escalon4.position.set(0,-0.855,3.15);
+scene.add(escalon4);
+
+const escalonCortoGeometry5 = new THREE.BoxGeometry(1.75, 0.05, 1)
+const escalon5 = new THREE.Mesh(escalonCortoGeometry5, escalonMaterial)
+escalon5.position.set(0,-0.905,3.25);
+scene.add(escalon5);
+
+const escalonCortoGeometry6 = new THREE.BoxGeometry(1.85, 0.05, 1)
+const escalon6 = new THREE.Mesh(escalonCortoGeometry6, escalonMaterial)
+escalon6.position.set(0,-0.955,3.35);
+scene.add(escalon6);
+
+// escalones izq
+
+const escalonCortoGeometry2a = new THREE.BoxGeometry(1.45, 0.05, 0.55)
+const escalon2a = new THREE.Mesh(escalonCortoGeometry2a, escalonMaterial)
+escalon2a.position.set(-0.42,-0.755,3.03);
+scene.add(escalon2a);
+
+const escalonCortoGeometry3a = new THREE.BoxGeometry(1.55, 0.05,0.55)
+const escalon3a = new THREE.Mesh(escalonCortoGeometry3a, escalonMaterial)
+escalon3a.position.set(-0.44,-0.805,3.03);
+scene.add(escalon3a);
+
+const escalonCortoGeometry4a = new THREE.BoxGeometry(1.65, 0.05, 0.55)
+const escalon4a = new THREE.Mesh(escalonCortoGeometry4a, escalonMaterial)
+escalon4a.position.set(-0.46,-0.855,3.03);
+scene.add(escalon4a);
+
+const escalonCortoGeometry5a = new THREE.BoxGeometry(1.75, 0.05, 0.58)
+const escalon5a = new THREE.Mesh(escalonCortoGeometry5a, escalonMaterial)
+escalon5a.position.set(-0.48,-0.905,3.065);
+scene.add(escalon5a);
+
+const escalonCortoGeometry6a = new THREE.BoxGeometry(1.85, 0.05, 0.65)
+const escalon6a = new THREE.Mesh(escalonCortoGeometry6a, escalonMaterial)
+escalon6a.position.set(-0.5,-0.955,3.1);
+scene.add(escalon6a);
+
+// escalones der
+
+const escalonCortoGeometry2b = new THREE.BoxGeometry(1.45, 0.05, 0.55)
+const escalon2b = new THREE.Mesh(escalonCortoGeometry2b, escalonMaterial)
+escalon2b.position.set(0.42,-0.755,3.03);
+scene.add(escalon2b);
+
+const escalonCortoGeometry3b = new THREE.BoxGeometry(1.55, 0.05,0.55)
+const escalon3b = new THREE.Mesh(escalonCortoGeometry3b, escalonMaterial)
+escalon3b.position.set(0.44,-0.805,3.03);
+scene.add(escalon3b);
+
+const escalonCortoGeometry4b = new THREE.BoxGeometry(1.65, 0.05, 0.55)
+const escalon4b = new THREE.Mesh(escalonCortoGeometry4b, escalonMaterial)
+escalon4b.position.set(0.46,-0.855,3.03);
+scene.add(escalon4b);
+
+const escalonCortoGeometry5b = new THREE.BoxGeometry(1.75, 0.05, 0.58)
+const escalon5b = new THREE.Mesh(escalonCortoGeometry5b, escalonMaterial)
+escalon5b.position.set(0.48,-0.905,3.065);
+scene.add(escalon5b);
+
+const escalonCortoGeometry6b = new THREE.BoxGeometry(1.85, 0.05, 0.65)
+const escalon6b = new THREE.Mesh(escalonCortoGeometry6b, escalonMaterial)
+escalon6b.position.set(0.5,-0.955,3.1);
+scene.add(escalon6b);
+
 //Techo
-const techoColGeometry6 = new THREE.BoxGeometry(2.2, 0.15, 1)
+const techoColGeometry6 = new THREE.BoxGeometry(2.2, 0.15, 0.95)
 const techoCol = new THREE.Mesh(techoColGeometry6, cajaMaterial)
-techoCol.position.set(0,0.9,3.25);
+techoCol.position.set(0,0.9,3);
 scene.add(techoCol);
 
 // Cupula
@@ -274,13 +328,12 @@ const cupulaBase4 = new THREE.Mesh(cupulaBaseGeometry4, baldosaMaterial)
 cupulaBase4.position.set(0,1.45,0);
 scene.add(cupulaBase4);
 
-// Curvas Cupula
-// 
-// Create a custom curved plane geometry
+// Techo triangular
+
 
 // Light
 const light = new THREE.PointLight(0xffffff, 1, 10);
-light.position.set(0, 0.5, 5);
+light.position.set(0, -1, 5);
 scene.add(light);
 
 // Ambient Light
