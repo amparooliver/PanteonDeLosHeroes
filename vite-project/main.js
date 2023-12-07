@@ -11,11 +11,20 @@ const colorMaterial = new THREE.MeshStandardMaterial({
   metalness: 0, // Adjust metalness
 });
 
+// Concreto
+const concreteTexture = new THREE.TextureLoader().load('./pared.jpg');
+const escalonTexture = new THREE.TextureLoader().load('./concrete.jpg');
+const baldosaTexture = new THREE.TextureLoader().load('./baldosa.jpg');
+baldosaTexture.repeat.set(7,7)
+const cieloTexture = new THREE.TextureLoader().load('./cielo.jpg');
+cieloTexture.repeat.set(3,3)
+
 // Piso
 const baldosaGeometry = new THREE.BoxGeometry(6, 0.05, 6)  // Width, Height, Depth
 const baldosaMaterial = new THREE.MeshStandardMaterial({
-  color: "#b99d81",
-  roughness: 0.5, // Adjust roughness
+  map: baldosaTexture,
+  color: "#eeedeb",
+  roughness: 0.9, // Adjust roughness
   metalness: 0.1, // Adjust metalness
 });
 const baldosa = new THREE.Mesh(baldosaGeometry, baldosaMaterial);
@@ -25,7 +34,8 @@ scene.add(baldosa);
 // Creo la 1ra caja
 const caja1Geometry = new THREE.BoxGeometry(3.2, 2, 3); // Width, Height, Depth
 const cajaMaterial = new THREE.MeshStandardMaterial({
-  color: "#f2f2f2", // f4f4f4 dad2c5
+  map: concreteTexture,
+  color: "#f4f4f4", // f4f4f4 dad2c5 #f4eadc
   roughness: 0.5, // Adjust roughness
   metalness: 0, // Adjust metalness
 });
@@ -206,10 +216,12 @@ scene.add(torusSmallUder);
 
 const escalonCortoGeometry1 = new THREE.BoxGeometry(1.75, 0.05, 1)  // Width, Height, Depth
 const escalonMaterial = new THREE.MeshStandardMaterial({
-  color: "#7c7d78",
+  map: escalonTexture,
+  color: "#a2aaaf",
   roughness: 0.5, // Adjust roughness
   metalness: 0.1, // Adjust metalness
 });
+
 const escalon1 = new THREE.Mesh(escalonCortoGeometry1, escalonMaterial);
 escalon1.position.set(0, -0.705, 2.85); //2.75
 scene.add(escalon1);
@@ -370,9 +382,9 @@ scene.add(ambientLight);
 
 // Camera
 const camera = new THREE.PerspectiveCamera(50, 1500 / 800);
-camera.position.x = -2;
+camera.position.x = -2.5;
 camera.position.y = 1;
-camera.position.z = 8;
+camera.position.z = 9;
 scene.add(camera);
 
 // Renderer
@@ -381,7 +393,7 @@ const renderer = new THREE.WebGLRenderer({ canvas });
 renderer.setSize(1500, 800);
 
 // Color fondo
-renderer.setClearColor("#dbe5ee"); // Use any valid CSS color value
+renderer.setClearColor("#c2d7ea"); // Use any valid CSS color value
 
 
 // OrbitControls
