@@ -1,4 +1,5 @@
 # PanteonDeLosHeroes
 ### como esta ahora mismo:
-![image](https://github.com/amparooliver/PanteonDeLosHeroes/assets/70351967/def6a4a0-06aa-4b69-b64e-aeaaf8e37ba3)
+![image](https://github.com/amparooliver/PanteonDeLosHeroes/assets/70351967/3b1fb456-303c-4573-ab3f-836769fc0c8f)
+
 
