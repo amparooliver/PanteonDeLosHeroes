@@ -4,6 +4,13 @@ import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls.js';
 // Create a scene
 const scene = new THREE.Scene();
 
+// Color de resalte
+const colorMaterial = new THREE.MeshStandardMaterial({
+  color: "#000000", // f4f4f4 dad2c5
+  roughness: 0.5, // Adjust roughness
+  metalness: 0, // Adjust metalness
+});
+
 // Piso
 const baldosaGeometry = new THREE.BoxGeometry(6, 0.05, 6)  // Width, Height, Depth
 const baldosaMaterial = new THREE.MeshStandardMaterial({
@@ -328,12 +335,33 @@ const cupulaBase4 = new THREE.Mesh(cupulaBaseGeometry4, baldosaMaterial)
 cupulaBase4.position.set(0,1.45,0);
 scene.add(cupulaBase4);
 
-// Techo triangular
+// Techo triangular ///////////////////////////////////////////////
 
+const triangleShape = new THREE.Shape();
+triangleShape.moveTo(0, 0);
+triangleShape.lineTo(1.1, 0); // largo
+triangleShape.lineTo(0, 0.5); // alto
+triangleShape.lineTo(0, 0);
+
+const extrudeSettings = {
+  steps: 2,
+  depth: 1, 
+  bevelEnabled: false, 
+};
+const triangleGeometry = new THREE.ExtrudeGeometry(triangleShape, extrudeSettings);
+const triangle = new THREE.Mesh(triangleGeometry, cajaMaterial);
+triangle.position.set(0,0.955,2.5)
+scene.add(triangle);
+const triangleGeometry2 = new THREE.ExtrudeGeometry(triangleShape, extrudeSettings);
+const triangle2 = new THREE.Mesh(triangleGeometry2, cajaMaterial);
+triangle2.rotation.y = Math.PI 
+triangle2.position.set(0,0.955,3.5)
+scene.add(triangle2);
+////////////////////////////////////////////////////////////////////////////////
 
 // Light
 const light = new THREE.PointLight(0xffffff, 1, 10);
-light.position.set(0, -1, 5);
+light.position.set(-2, 1.2, 5);
 scene.add(light);
 
 // Ambient Light
