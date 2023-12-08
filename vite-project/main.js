@@ -1,9 +1,27 @@
 import * as THREE from 'three';
 import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls.js';
+import { GLTFLoader } from 'three/addons/loaders/GLTFLoader.js';
 
 // Create a scene
 const scene = new THREE.Scene();
 
+// ARBOL
+const loader1 = new GLTFLoader();
+loader1.load('./arbol.glb', (gltf1) => {
+  gltf1.scene.position.set(2, -1, 2);
+  gltf1.scene.scale.set(0.6, 0.6, 0.5);
+  scene.add(gltf1.scene);
+});
+// ARBUSTO
+const loader2 = new GLTFLoader();
+loader1.load('./arbusto.glb', (gltf2) => {
+  // Adjust the position, rotation, and scale as needed
+  gltf2.scene.position.set(1.90, -1, 2);
+  gltf2.scene.scale.set(0.1, 0.1, 0.1);
+
+  // Add the Blender model to the scene
+  scene.add(gltf2.scene);
+});
 // Color de resalte
 const colorMaterial = new THREE.MeshStandardMaterial({
   color: "#000000", // f4f4f4 dad2c5
